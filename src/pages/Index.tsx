@@ -81,6 +81,7 @@ const Index = () => {
                 <div className="text-left">
                   <p className="text-sm text-foreground/60 mb-1">IP-адрес сервера:</p>
                   <p className="text-xl font-bold text-primary font-mono">BixCat.aternos.me:16863</p>
+                  <p className="text-xs text-accent mt-1">Версия: 1.21.11</p>
                 </div>
               </div>
               <Button
