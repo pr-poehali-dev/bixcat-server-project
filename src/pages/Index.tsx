@@ -1,12 +1,357 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState('home');
+
+  const scrollToSection = (section: string) => {
+    setActiveSection(section);
+    const element = document.getElementById(section);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f]">
+      <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-primary/20">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center neon-border">
+                <span className="text-2xl">🐱</span>
+              </div>
+              <h1 className="text-2xl font-bold text-primary neon-text">BixCat</h1>
+            </div>
+            
+            <div className="hidden md:flex gap-6">
+              <button
+                onClick={() => scrollToSection('home')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'home' ? 'text-primary' : 'text-foreground/80'
+                }`}
+              >
+                Главная
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'about' ? 'text-primary' : 'text-foreground/80'
+                }`}
+              >
+                О сервере
+              </button>
+              <button
+                onClick={() => scrollToSection('rules')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'rules' ? 'text-primary' : 'text-foreground/80'
+                }`}
+              >
+                Правила
+              </button>
+              <button
+                onClick={() => scrollToSection('donate')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'donate' ? 'text-primary' : 'text-foreground/80'
+                }`}
+              >
+                Донат
+              </button>
+            </div>
+
+            <Button 
+              onClick={() => window.open('https://t.me/bixcat_mc', '_blank')}
+              className="bg-primary hover:bg-primary/90 text-background font-semibold glow-hover"
+            >
+              <Icon name="Send" size={16} className="mr-2" />
+              Telegram
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      <section id="home" className="pt-32 pb-20 px-6">
+        <div className="container mx-auto text-center">
+          <div className="mb-8 inline-block">
+            <div className="text-8xl mb-6 animate-bounce">⛏️</div>
+          </div>
+          <h1 className="text-6xl md:text-7xl font-black mb-6 text-primary neon-text">
+            BixCat
+          </h1>
+          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto">
+            Лучший Minecraft сервер выживания с дружным комьюнити
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Button 
+              size="lg"
+              onClick={() => scrollToSection('about')}
+              className="bg-primary hover:bg-primary/90 text-background font-bold text-lg px-8 glow-hover"
+            >
+              <Icon name="PlayCircle" size={20} className="mr-2" />
+              Начать играть
+            </Button>
+            <Button 
+              size="lg"
+              variant="outline"
+              onClick={() => window.open('https://t.me/bixcat_mc', '_blank')}
+              className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8"
+            >
+              <Icon name="MessageCircle" size={20} className="mr-2" />
+              Наш чат
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <Card className="bg-card/50 backdrop-blur border-primary/30 p-6 glow-hover">
+              <div className="text-4xl mb-4">👥</div>
+              <h3 className="text-2xl font-bold text-secondary mb-2">500+ игроков</h3>
+              <p className="text-foreground/70">Активное комьюнити</p>
+            </Card>
+            <Card className="bg-card/50 backdrop-blur border-accent/30 p-6 glow-hover">
+              <div className="text-4xl mb-4">🏰</div>
+              <h3 className="text-2xl font-bold text-accent mb-2">Без вайпов</h3>
+              <p className="text-foreground/70">Твои постройки навсегда</p>
+            </Card>
+            <Card className="bg-card/50 backdrop-blur border-primary/30 p-6 glow-hover">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="text-2xl font-bold text-primary mb-2">Без лагов</h3>
+              <p className="text-foreground/70">Стабильная работа 24/7</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-20 px-6 bg-black/20">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-5xl font-black text-center mb-12 text-primary neon-text">
+            О сервере
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="bg-card/50 backdrop-blur border-primary/30 p-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="text-4xl">🌲</div>
+                <h3 className="text-2xl font-bold text-secondary">Режим выживания</h3>
+              </div>
+              <p className="text-foreground/80 leading-relaxed">
+                Классическое выживание в Minecraft без модификаций геймплея. 
+                Добывай ресурсы, строй дома, исследуй мир и создавай свою историю.
+              </p>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-accent/30 p-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="text-4xl">🏗️</div>
+                <h3 className="text-2xl font-bold text-accent">Постройки</h3>
+              </div>
+              <p className="text-foreground/80 leading-relaxed">
+                Создавай невероятные постройки вместе с друзьями. 
+                Твоя фантазия - единственное ограничение!
+              </p>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-secondary/30 p-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="text-4xl">⛏️</div>
+                <h3 className="text-2xl font-bold text-secondary">Добыча ресурсов</h3>
+              </div>
+              <p className="text-foreground/80 leading-relaxed">
+                Копай шахты, исследуй пещеры, находи редкие руды. 
+                Все ресурсы добываются честно, без привилегий.
+              </p>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/30 p-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="text-4xl">🤝</div>
+                <h3 className="text-2xl font-bold text-primary">Комьюнити</h3>
+              </div>
+              <p className="text-foreground/80 leading-relaxed">
+                Дружное сообщество игроков, готовых помочь новичкам. 
+                Создавай кланы, торгуй и общайся!
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="rules" className="py-20 px-6">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-5xl font-black text-center mb-12 text-primary neon-text">
+            Правила сервера
+          </h2>
+          
+          <div className="space-y-4">
+            {[
+              { icon: '🚫', title: 'Запрещено использование читов', desc: 'Любые модификации, дающие преимущество в игре' },
+              { icon: '💬', title: 'Уважение к игрокам', desc: 'Оскорбления, спам и токсичность караются баном' },
+              { icon: '🏠', title: 'Гриферство запрещено', desc: 'Не ломай чужие постройки без разрешения владельца' },
+              { icon: '🎭', title: 'Не обманывай игроков', desc: 'Честная торговля и взаимодействие' },
+              { icon: '🛡️', title: 'Багоюз запрещен', desc: 'Использование багов игры для получения выгоды' },
+              { icon: '📝', title: 'Следуй указаниям админов', desc: 'Администрация следит за порядком на сервере' }
+            ].map((rule, idx) => (
+              <Card 
+                key={idx}
+                className="bg-card/50 backdrop-blur border-primary/30 p-6 glow-hover"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">{rule.icon}</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-secondary mb-2">{rule.title}</h3>
+                    <p className="text-foreground/70">{rule.desc}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="donate" className="py-20 px-6 bg-black/20">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-5xl font-black text-center mb-6 text-primary neon-text">
+            Поддержать проект
+          </h2>
+          <p className="text-center text-foreground/70 mb-12 text-lg">
+            Твоя поддержка помогает развивать сервер и делать его лучше
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="bg-gradient-to-br from-card/50 to-card/30 backdrop-blur border-primary/40 p-8 text-center glow-hover">
+              <div className="text-4xl mb-4">⭐</div>
+              <h3 className="text-2xl font-bold text-primary mb-4">Базовый</h3>
+              <p className="text-3xl font-black text-secondary mb-4">299₽</p>
+              <ul className="text-left space-y-2 mb-6 text-foreground/80">
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Цветной ник
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Уникальный префикс
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Доступ к /hat
+                </li>
+              </ul>
+              <Button 
+                onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+                className="w-full bg-primary hover:bg-primary/90 text-background font-bold"
+              >
+                Купить в Telegram
+              </Button>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-secondary/30 to-secondary/10 backdrop-blur border-secondary/60 p-8 text-center glow-hover scale-105 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent text-background px-4 py-1 rounded-full text-sm font-bold">
+                Популярный
+              </div>
+              <div className="text-4xl mb-4">💎</div>
+              <h3 className="text-2xl font-bold text-secondary mb-4">Премиум</h3>
+              <p className="text-3xl font-black text-primary mb-4">599₽</p>
+              <ul className="text-left space-y-2 mb-6 text-foreground/80">
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Все из Базового
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Приват территории
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  /fly на спавне
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Кит ресурсов
+                </li>
+              </ul>
+              <Button 
+                onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+                className="w-full bg-secondary hover:bg-secondary/90 text-background font-bold"
+              >
+                Купить в Telegram
+              </Button>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-card/50 to-card/30 backdrop-blur border-accent/40 p-8 text-center glow-hover">
+              <div className="text-4xl mb-4">👑</div>
+              <h3 className="text-2xl font-bold text-accent mb-4">VIP</h3>
+              <p className="text-3xl font-black text-primary mb-4">999₽</p>
+              <ul className="text-left space-y-2 mb-6 text-foreground/80">
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Все из Премиум
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Свечение ника
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Больше приватов
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Check" size={16} className="text-accent" />
+                  Эксклюзивные киты
+                </li>
+              </ul>
+              <Button 
+                onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+                className="w-full bg-accent hover:bg-accent/90 text-background font-bold"
+              >
+                Купить в Telegram
+              </Button>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Card className="bg-card/30 backdrop-blur border-primary/20 p-6 inline-block">
+              <p className="text-foreground/80 flex items-center gap-2">
+                <Icon name="Info" size={20} className="text-primary" />
+                Все донаты оформляются через наш официальный Telegram-бот
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <footer className="py-12 px-6 bg-black/40 border-t border-primary/20">
+        <div className="container mx-auto text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center neon-border">
+              <span className="text-3xl">🐱</span>
+            </div>
+            <h3 className="text-3xl font-bold text-primary neon-text">BixCat</h3>
+          </div>
+          <p className="text-foreground/60 mb-4">
+            Лучший Minecraft сервер выживания
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => window.open('https://t.me/bixcat_mc', '_blank')}
+              className="border-primary/40 hover:bg-primary/10 hover:border-primary"
+            >
+              <Icon name="Send" size={20} />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+              className="border-secondary/40 hover:bg-secondary/10 hover:border-secondary"
+            >
+              <Icon name="DollarSign" size={20} />
+            </Button>
+          </div>
+          <p className="text-foreground/40 text-sm mt-8">
+            © 2024 BixCat. Все права защищены.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
