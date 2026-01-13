@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -6,7 +6,36 @@ import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [onlinePlayers, setOnlinePlayers] = useState<number | null>(null);
+  const [maxPlayers, setMaxPlayers] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchServerStatus = async () => {
+      try {
+        const response = await fetch('https://api.mcsrvstat.us/3/BixCat.aternos.me:16863');
+        const data = await response.json();
+        
+        if (data.online) {
+          setOnlinePlayers(data.players?.online || 0);
+          setMaxPlayers(data.players?.max || 20);
+        } else {
+          setOnlinePlayers(0);
+          setMaxPlayers(20);
+        }
+      } catch (error) {
+        setOnlinePlayers(0);
+        setMaxPlayers(20);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchServerStatus();
+    const interval = setInterval(fetchServerStatus, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToSection = (section: string) => {
     setActiveSection(section);
@@ -125,10 +154,19 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="bg-card/50 backdrop-blur border-primary/30 p-6 glow-hover">
+            <Card className="bg-card/50 backdrop-blur border-primary/30 p-6 glow-hover relative overflow-hidden">
+              <div className="absolute top-2 right-2">
+                <div className={`w-3 h-3 rounded-full ${isLoading ? 'bg-foreground/30' : onlinePlayers && onlinePlayers > 0 ? 'bg-accent animate-pulse' : 'bg-foreground/30'}`} />
+              </div>
               <div className="text-4xl mb-4">👥</div>
-              <h3 className="text-2xl font-bold text-secondary mb-2">50+ игроков</h3>
-              <p className="text-foreground/70">Активное комьюнити</p>
+              <h3 className="text-2xl font-bold text-secondary mb-2">
+                {isLoading ? (
+                  <span className="text-foreground/50">Загрузка...</span>
+                ) : (
+                  <span>{onlinePlayers}/{maxPlayers} онлайн</span>
+                )}
+              </h3>
+              <p className="text-foreground/70">Сейчас на сервере</p>
             </Card>
             <Card className="bg-card/50 backdrop-blur border-accent/30 p-6 glow-hover">
               <div className="text-4xl mb-4">🏰</div>
