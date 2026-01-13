@@ -268,6 +268,58 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 px-6 bg-black/20">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-5xl font-black text-center mb-12 text-primary neon-text">
+            Администрация
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="bg-card/50 backdrop-blur border-primary/30 p-8 glow-hover">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-3xl neon-border">
+                  👑
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-primary">Artemka2013228</h3>
+                  <p className="text-accent font-semibold">Главный администратор</p>
+                </div>
+              </div>
+              <p className="text-foreground/70 mb-4">
+                Основатель и главный администратор сервера BixCat. Отвечает за развитие проекта и решение всех вопросов.
+              </p>
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
+                  className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40"
+                >
+                  <Icon name="Send" size={16} className="mr-2" />
+                  Связаться
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-secondary/30 p-8 text-center">
+              <div className="flex flex-col items-center justify-center h-full gap-4">
+                <div className="text-6xl">🔍</div>
+                <h3 className="text-xl font-bold text-secondary">Ищем помощников!</h3>
+                <p className="text-foreground/70">
+                  Хочешь помогать развивать сервер? Напиши администратору!
+                </p>
+                <Button
+                  onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
+                  className="bg-secondary hover:bg-secondary/90 text-background font-bold"
+                >
+                  <Icon name="MessageCircle" size={16} className="mr-2" />
+                  Подать заявку
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <footer className="py-12 px-6 bg-black/40 border-t border-primary/20">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
