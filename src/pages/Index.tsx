@@ -70,9 +70,32 @@ const Index = () => {
           <h1 className="text-6xl md:text-7xl font-black mb-6 text-primary neon-text">
             BixCat
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-foreground/80 mb-6 max-w-2xl mx-auto">
             Лучший Minecraft сервер выживания с дружным комьюнити
           </p>
+          
+          <Card className="bg-card/40 backdrop-blur border-primary/40 p-6 inline-block mb-8 neon-border">
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex items-center gap-3">
+                <Icon name="Server" size={24} className="text-primary" />
+                <div className="text-left">
+                  <p className="text-sm text-foreground/60 mb-1">IP-адрес сервера:</p>
+                  <p className="text-xl font-bold text-primary font-mono">BixCat.aternos.me:16863</p>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                onClick={() => {
+                  navigator.clipboard.writeText('BixCat.aternos.me:16863');
+                }}
+                className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40"
+              >
+                <Icon name="Copy" size={16} className="mr-2" />
+                Скопировать
+              </Button>
+            </div>
+          </Card>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               size="lg"
