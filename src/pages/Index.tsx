@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const { toast } = useToast();
 
   const scrollToSection = (section: string) => {
     setActiveSection(section);
@@ -88,6 +90,11 @@ const Index = () => {
                 size="sm"
                 onClick={() => {
                   navigator.clipboard.writeText('BixCat.aternos.me:16863');
+                  toast({
+                    title: 'IP скопирован!',
+                    description: 'BixCat.aternos.me:16863 скопирован в буфер обмена',
+                    duration: 3000,
+                  });
                 }}
                 className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40"
               >
