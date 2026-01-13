@@ -60,7 +60,7 @@ const Index = () => {
             </div>
 
             <Button 
-              onClick={() => window.open('https://t.me/bixcat_mc', '_blank')}
+              onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
               className="bg-primary hover:bg-primary/90 text-background font-semibold glow-hover"
             >
               <Icon name="Send" size={16} className="mr-2" />
@@ -93,7 +93,7 @@ const Index = () => {
             <Button 
               size="lg"
               variant="outline"
-              onClick={() => window.open('https://t.me/bixcat_mc', '_blank')}
+              onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
               className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8"
             >
               <Icon name="MessageCircle" size={20} className="mr-2" />
@@ -236,7 +236,7 @@ const Index = () => {
                 </li>
               </ul>
               <Button 
-                onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+                onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
                 className="w-full bg-primary hover:bg-primary/90 text-background font-bold"
               >
                 Купить в Telegram
@@ -269,7 +269,7 @@ const Index = () => {
                 </li>
               </ul>
               <Button 
-                onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+                onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
                 className="w-full bg-secondary hover:bg-secondary/90 text-background font-bold"
               >
                 Купить в Telegram
@@ -299,7 +299,7 @@ const Index = () => {
                 </li>
               </ul>
               <Button 
-                onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
+                onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
                 className="w-full bg-accent hover:bg-accent/90 text-background font-bold"
               >
                 Купить в Telegram
@@ -333,18 +333,10 @@ const Index = () => {
             <Button
               variant="outline"
               size="icon"
-              onClick={() => window.open('https://t.me/bixcat_mc', '_blank')}
+              onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
               className="border-primary/40 hover:bg-primary/10 hover:border-primary"
             >
               <Icon name="Send" size={20} />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => window.open('https://t.me/bixcat_donate', '_blank')}
-              className="border-secondary/40 hover:bg-secondary/10 hover:border-secondary"
-            >
-              <Icon name="DollarSign" size={20} />
             </Button>
           </div>
           <p className="text-foreground/40 text-sm mt-8">
