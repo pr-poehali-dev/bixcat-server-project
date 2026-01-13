@@ -49,14 +49,6 @@ const Index = () => {
               >
                 Правила
               </button>
-              <button
-                onClick={() => scrollToSection('donate')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === 'donate' ? 'text-primary' : 'text-foreground/80'
-                }`}
-              >
-                Донат
-              </button>
             </div>
 
             <Button 
@@ -104,7 +96,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <Card className="bg-card/50 backdrop-blur border-primary/30 p-6 glow-hover">
               <div className="text-4xl mb-4">👥</div>
-              <h3 className="text-2xl font-bold text-secondary mb-2">500+ игроков</h3>
+              <h3 className="text-2xl font-bold text-secondary mb-2">50+ игроков</h3>
               <p className="text-foreground/70">Активное комьюнити</p>
             </Card>
             <Card className="bg-card/50 backdrop-blur border-accent/30 p-6 glow-hover">
@@ -203,117 +195,6 @@ const Index = () => {
                 </div>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="donate" className="py-20 px-6 bg-black/20">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-5xl font-black text-center mb-6 text-primary neon-text">
-            Поддержать проект
-          </h2>
-          <p className="text-center text-foreground/70 mb-12 text-lg">
-            Твоя поддержка помогает развивать сервер и делать его лучше
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-br from-card/50 to-card/30 backdrop-blur border-primary/40 p-8 text-center glow-hover">
-              <div className="text-4xl mb-4">⭐</div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Базовый</h3>
-              <p className="text-3xl font-black text-secondary mb-4">299₽</p>
-              <ul className="text-left space-y-2 mb-6 text-foreground/80">
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Цветной ник
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Уникальный префикс
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Доступ к /hat
-                </li>
-              </ul>
-              <Button 
-                onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
-                className="w-full bg-primary hover:bg-primary/90 text-background font-bold"
-              >
-                Купить в Telegram
-              </Button>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-secondary/30 to-secondary/10 backdrop-blur border-secondary/60 p-8 text-center glow-hover scale-105 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent text-background px-4 py-1 rounded-full text-sm font-bold">
-                Популярный
-              </div>
-              <div className="text-4xl mb-4">💎</div>
-              <h3 className="text-2xl font-bold text-secondary mb-4">Премиум</h3>
-              <p className="text-3xl font-black text-primary mb-4">599₽</p>
-              <ul className="text-left space-y-2 mb-6 text-foreground/80">
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Все из Базового
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Приват территории
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  /fly на спавне
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Кит ресурсов
-                </li>
-              </ul>
-              <Button 
-                onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
-                className="w-full bg-secondary hover:bg-secondary/90 text-background font-bold"
-              >
-                Купить в Telegram
-              </Button>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-card/50 to-card/30 backdrop-blur border-accent/40 p-8 text-center glow-hover">
-              <div className="text-4xl mb-4">👑</div>
-              <h3 className="text-2xl font-bold text-accent mb-4">VIP</h3>
-              <p className="text-3xl font-black text-primary mb-4">999₽</p>
-              <ul className="text-left space-y-2 mb-6 text-foreground/80">
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Все из Премиум
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Свечение ника
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Больше приватов
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-accent" />
-                  Эксклюзивные киты
-                </li>
-              </ul>
-              <Button 
-                onClick={() => window.open('https://t.me/ArtemisMuraev', '_blank')}
-                className="w-full bg-accent hover:bg-accent/90 text-background font-bold"
-              >
-                Купить в Telegram
-              </Button>
-            </Card>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Card className="bg-card/30 backdrop-blur border-primary/20 p-6 inline-block">
-              <p className="text-foreground/80 flex items-center gap-2">
-                <Icon name="Info" size={20} className="text-primary" />
-                Все донаты оформляются через наш официальный Telegram-бот
-              </p>
-            </Card>
           </div>
         </div>
       </section>
