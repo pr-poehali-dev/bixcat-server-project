@@ -98,11 +98,16 @@ const Index = () => {
           <div className="mb-8 inline-block">
             <div className="text-8xl mb-6 animate-bounce">⛏️</div>
           </div>
+          <div className="inline-block mb-4">
+            <span className="bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-bold border border-accent/40 animate-pulse">
+              🎉 Недавно открылись!
+            </span>
+          </div>
           <h1 className="text-6xl md:text-7xl font-black mb-6 text-primary neon-text">
             BixCat
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-6 max-w-2xl mx-auto">
-            Лучший Minecraft сервер выживания с дружным комьюнити
+            Новый Minecraft сервер выживания с дружным комьюнити
           </p>
           
           <Card className="bg-card/40 backdrop-blur border-primary/40 p-6 inline-block mb-8 neon-border">
